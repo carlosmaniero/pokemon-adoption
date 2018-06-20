@@ -1,10 +1,11 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 
 
-export class SpecieList extends React.Component {
+class SpecieListImpl extends React.Component {
   render () {
     return <ul>
-      {['bulbasaur', 'pikachu'].map(this.renderPokemon.bind(this))}
+      {this.props.species.map(this.renderPokemon.bind(this))}
     </ul>;
   }
 
@@ -14,3 +15,9 @@ export class SpecieList extends React.Component {
     </li>;
   }
 }
+
+const mapStateToProps = (state) => ({
+  species: state.specieList
+});
+
+export const SpecieList = connect(mapStateToProps)(SpecieListImpl);
