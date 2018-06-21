@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from '../store';
 import { SpecieList } from './SpecieList';
 import { actions } from './actions';
+import moxios from 'moxios'
 
 
 describe('SpecieList', () => {
@@ -18,14 +19,30 @@ describe('SpecieList', () => {
 
   beforeEach(() => {
     store = configureStore();
-    store.dispatch(actions.addPokemons(['bulbasaur', 'pikachu']))
+    moxios.install();
   });
 
-  it('renders the given list', () => {
+  afterEach(function () {
+    moxios.uninstall();
+  });
+
+  it('renders the given list', async () => {
+    moxios.stubRequest('https://pokeapi.co/api/v2/pokemon/?limit=200', {
+      status: 200,
+      response: {
+        results: [
+          { name: 'bulbasaur' },
+          { name: 'pikachu' },
+        ]
+      }
+    });
+
     wrapper = mount(
       <Provider store={store}>
         <SpecieList />
       </Provider>);
+
+    await ensureRender(wrapper);
 
     expect(pokemons().length).toBe(2);
     expect(pokemonName(0)).toBe('bulbasaur');

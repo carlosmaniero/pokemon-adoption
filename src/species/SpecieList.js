@@ -1,9 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { actions } from './actions';
 import './SpecieList.css';
 
 
 class SpecieListImpl extends React.Component {
+  componentWillMount () {
+    this.props.dispatch(actions.fetchPokemons());
+  }
+
   render () {
     return <div className="specie-list-wrapper">
       <h1>Choose your Pokémon</h1>
