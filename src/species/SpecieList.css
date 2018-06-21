@@ -1,0 +1,11 @@
+.specie-list-wrapper h1 {
+  font-size: 1.8rem;
+}
+.specie-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.specie-list li {
+  list-style: none;
+}

@@ -1,12 +1,17 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import './SpecieList.css';
 
 
 class SpecieListImpl extends React.Component {
   render () {
-    return <ul>
-      {this.props.species.map(this.renderPokemon.bind(this))}
-    </ul>;
+    return <div className="specie-list-wrapper">
+      <h1>Choose your Pokémon</h1>
+
+      <ul className="specie-list">
+        {this.props.species.map(this.renderPokemon.bind(this))}
+      </ul>
+    </div>;
   }
 
   renderPokemon(name) {
