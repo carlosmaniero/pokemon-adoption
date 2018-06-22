@@ -19,13 +19,6 @@ describe('SpecieList', () => {
   beforeEach(() => {
     store = configureStore();
     moxios.install();
-  });
-
-  afterEach(function () {
-    moxios.uninstall();
-  });
-
-  beforeEach(() => {
     moxios.stubRequest('https://pokeapi.co/api/v2/pokemon/?limit=200', {
       status: 200,
       response: {
@@ -40,7 +33,11 @@ describe('SpecieList', () => {
       <Provider store={store}>
         <SpecieList />
       </Provider>);
-  })
+  });
+
+  afterEach(function () {
+    moxios.uninstall();
+  });
 
   describe('fetching specie list', () => {
     it('shows a loading message until the api returns', () => {
