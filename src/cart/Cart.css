@@ -1,0 +1,20 @@
+.cart .cart-counter-wrapper {
+    display: flex;
+    background: #fafafa;
+    border: 1px solid #eeeeee;
+    padding: 0.5rem;
+    width: 5rem;
+    justify-content: space-between;
+    border-radius: 50rem;
+    margin: 0 auto;
+}
+
+.cart .cart-counter {
+    background: #1a1a1a;
+    color: #ffffff;
+    border-radius: 50rem;
+    padding: 0.5rem;
+    width: 1rem;
+    margin-left: 1rem;
+    text-align: center;
+}

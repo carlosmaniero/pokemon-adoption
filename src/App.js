@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import { SpecieList } from './species/SpecieList';
+import { Cart } from './cart/Cart';
 import './App.css';
 
 class App extends Component {
@@ -8,13 +9,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Pokemon Adoption</h1>
+          <Cart />
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
         <SpecieList />
+        <p className="App-intro">
+          Don't buy adopt!
+        </p>
       </div>
     );
   }
