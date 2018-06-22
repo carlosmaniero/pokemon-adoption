@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { actions } from './actions';
+import { actions as cartActions } from '../cart/actions';
 import './SpecieList.css';
 
 
@@ -25,6 +26,7 @@ class SpecieListImpl extends React.Component {
   renderPokemon(name) {
     return <li key={name}>
       <h3>{name}</h3>
+      <button className="add-to-cart" onClick={() => this.props.dispatch(cartActions.addToCart(name))}>Add to Cart</button>
     </li>;
   }
 }
