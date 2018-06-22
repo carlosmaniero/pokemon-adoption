@@ -10,6 +10,9 @@ class SpecieListImpl extends React.Component {
   }
 
   render () {
+    if (this.props.species.length === 0) {
+      return <div>Loading ...</div>
+    }
     return <div className="specie-list-wrapper">
       <h1>Choose your Pokémon</h1>
 
