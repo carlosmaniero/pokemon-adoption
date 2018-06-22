@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
-import { configureStore } from '../store';
-import { SpecieList } from './SpecieList';
-import { actions } from './actions';
+import { configureStore } from '../../store';
+import { SpecieList } from '../SpecieList';
 import moxios from 'moxios'
 
 
